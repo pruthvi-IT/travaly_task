@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:travaly_assignment/screens/sign_in_screen.dart';
 import 'providers/auth_provider.dart';
 import 'providers/hotel_provider.dart';
 import 'screens/home_screen.dart';
 
-void main() {
+Future<void> main() async {
+  // Ensure Flutter bindings are initialized
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   runApp(const MyTravalyApp());
 }
 

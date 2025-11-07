@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
   // === BASE CONFIG ===
   final String _baseUrl = 'https://api.mytravaly.com/public/v1/';
-  final String _authToken = '71523fdd8d26f585315b4233e39d9263';
+  final String _authToken = dotenv.env['API_AUTH_TOKEN'] ?? '';
   String? _visitorToken;
 
   // === SINGLETON ===
